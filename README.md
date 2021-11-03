@@ -1,3 +1,4 @@
+#Задание №3 - Ветки
 # devops-netology
 #Игнорируются в любых директориях и поддиректориях папка .terraform
 **/.terraform/*
@@ -21,3 +22,4 @@ override.tf.json
 #Игнорируются файлы
 .terraformrc
 terraform.rc
+ 
