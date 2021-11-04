@@ -1,3 +1,4 @@
+FIX
 # devops-netology
 #Игнорируются в любых директориях и поддиректориях папка .terraform
 **/.terraform/*
