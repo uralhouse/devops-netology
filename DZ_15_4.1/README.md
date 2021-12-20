@@ -60,56 +60,56 @@ done
 
    **Ответ:**
 
-        ```bash
-	#!/usr/bin/env bash
-	array_ip=(192.168.0.1 173.194.222.113 87.250.250.242)
-	port=80
-	counter=5
-	timeout=3
-	
-	for ip in ${array_ip[@]}
-	  do
-	    for ((i=1;i<=$counter;i++))
-	      do  
-	        if ( curl -s --connect-timeout $timeout $ip:$port > /dev/null )
-	          then 
-	            echo "Host $ip ($i) > TRUE"
-	            echo "Host $ip ($i) > TRUE" >> log
-	          else
-	            echo "Host $ip ($i)> FALSE"
-	            echo "Host $ip ($i) > FALSE" >> log
-	        fi
-	      done
-	  done
-         ```
+```bash
+#!/usr/bin/env bash
+array_ip=(192.168.0.1 173.194.222.113 87.250.250.242)
+port=80
+counter=5
+timeout=3
+
+for ip in ${array_ip[@]}
+  do
+    for ((i=1;i<=$counter;i++))
+      do  
+        if ( curl -s --connect-timeout $timeout $ip:$port > /dev/null )
+          then 
+            echo "Host $ip ($i) > TRUE"
+            echo "Host $ip ($i) > TRUE" >> log
+          else
+            echo "Host $ip ($i)> FALSE"
+            echo "Host $ip ($i) > FALSE" >> log
+        fi
+      done
+  done
+```
 
 4. Необходимо дописать скрипт из предыдущего задания так, чтобы он выполнялся до тех пор, пока один из узлов не окажется недоступным. Если любой из узлов недоступен - IP этого узла пишется в файл error, скрипт прерывается
 
    **Ответ:**
 
-        ```bash
-	#!/usr/bin/env bash
-	array_ip=(173.194.222.113 87.250.250.242 192.168.0.1)
-	port=80
-	counter=5
-	timeout=3
-	
-	while ((1==1))
-	  do
-	    for ip in ${array_ip[@]}
-	      do
-	        for ((i=1;i<=$counter;i++))
-	          do  
-	            if ( curl -s --connect-timeout $timeout $ip:$port > /dev/null )
-	              then 
-	                echo "Host $ip ($i) > TRUE"
-	                echo "Host $ip ($i) > TRUE" >> log2
-	              else
-	                echo "Host $ip ($i)> FALSE > EXIT"
-	                echo "Host $ip ($i) > FALSE" >> error
-	                exit 
-	            fi
-	          done
-	      done
-	  done
-        ```
+```bash
+#!/usr/bin/env bash
+array_ip=(173.194.222.113 87.250.250.242 192.168.0.1)
+port=80
+counter=5
+timeout=3
+
+while ((1==1))
+  do
+    for ip in ${array_ip[@]}
+      do
+        for ((i=1;i<=$counter;i++))
+          do  
+            if ( curl -s --connect-timeout $timeout $ip:$port > /dev/null )
+              then 
+                echo "Host $ip ($i) > TRUE"
+                echo "Host $ip ($i) > TRUE" >> log2
+              else
+                echo "Host $ip ($i)> FALSE > EXIT"
+                echo "Host $ip ($i) > FALSE" >> error
+                exit 
+            fi
+          done
+      done
+  done
+```
