@@ -13,9 +13,9 @@ c = a + b
 ### Вопросы:
 | Вопрос  | Ответ |
 | ------------- | ------------- |
-| Какое значение будет присвоено переменной `c`?  | Python выполнит вывод, что операция типа  + : 'int' and 'str' не поддерживается (не склеить и не суммировать. Переменная `a` имеет тип "целое число" , переменная `b` имеет тип "строка". |
-| Как получить для переменной `c` значение 12?  | Необходимо: откорректировать переменную `a='1'`или объявить переменную 'a' типом "строка", т.е.   `a=str(1)` |
-| Как получить для переменной `c` значение 3?  | Необходимо: откорректировать переменную `b=2`,  чтобы объявить переменную 'b' типом "целое число" |
+| Какое значение будет присвоено переменной `c`?  | Будет выведена ошибка, так как пытаемся выполнить операцию сложения с типами переменных 'int' и 'str'. |
+| Как получить для переменной `c` значение 12?  | с = str(a) + b |
+| Как получить для переменной `c` значение 3?  | с = a + int(a) |
 
 ## Обязательная задача 2
 Мы устроились на работу в компанию, где раньше уже был DevOps Engineer. Он написал скрипт, позволяющий узнать, какие файлы модифицированы в репозитории, относительно локальных изменений. Этим скриптом недовольно начальство, потому что в его выводе есть не все изменённые файлы, а также непонятен полный путь к директории, где они находятся. Как можно доработать скрипт ниже, чтобы он исполнял требования вашего руководителя?
@@ -120,42 +120,29 @@ alniger@HP:~/netology.devops/04-script-02-py$
 ```python
 #!/usr/bin/env python3
 import socket
+import time
 
 socket_url = ['drive.google.com','mail.google.com','google.com']
-array_0 = []
-array_1 = []
-
-with open('ip.log','r') as inp:
-    array_1 = inp.read().split(',') #Формирование массива из файла
-    inp.close()
-count=0
-for socket_ip in socket_url:
-    array_0.append(socket.gethostbyname(socket_ip)) #Формирования массива фактического
-    if socket.gethostbyname(socket_ip) == array_1[count]:
-        print(socket_ip,socket.gethostbyname(socket_ip)) 
-    else:
-        print('ERROR:',socket_ip,'IP mismatch:',array_1[count],socket.gethostbyname(socket_ip))
-    count+=1
-
-with open('ip.log','w+') as inp2:
-    inp2.write(','.join(array_0))
-    inp2.close()
+socket_dict = {} #Объявляем переменную типа список  
+while(1):
+    for socket_ip in socket_url:
+        if socket_ip not in socket_dict:
+            socket_dict[socket_ip] = socket.gethostbyname(socket_ip)
+            print(socket_ip,socket.gethostbyname(socket_ip))
+        if socket.gethostbyname(socket_ip) != socket_dict[socket_ip]:
+            print('ERROR:',socket_ip,'IP mismatch:',socket_dict[socket_ip],socket.gethostbyname(socket_ip))
+            socket_dict[socket_ip] = socket.gethostbyname(socket_ip)
+    time.sleep(5)
 ```
 
 ### Вывод скрипта при запуске при тестировании:
 ```
-alniger@HP:~/netology.devops/04-script-02-py$ ./test5.py
-ERROR: drive.google.com IP mismatch: 64.233.164.194 74.125.131.194
-mail.google.com 142.251.1.83
-google.com 173.194.220.101
-alniger@HP:~/netology.devops/04-script-02-py$ ./test5.py
-drive.google.com 74.125.131.194
-mail.google.com 142.251.1.83
-google.com 173.194.220.101
-alniger@HP:~/netology.devops/04-script-02-py$ ./test5.py
-drive.google.com 74.125.131.194
-mail.google.com 142.251.1.83
-ERROR: google.com IP mismatch: 173.194.220.101 173.194.220.113
+alniger@HP:~/netology.devops/04-script-02-py$ ./test6.py 
+drive.google.com 74.125.205.194
+mail.google.com 173.194.221.18
+google.com 108.177.14.113
+ERROR: mail.google.com IP mismatch: 173.194.221.18 173.194.221.19
+ERROR: google.com IP mismatch: 108.177.14.113 209.85.233.102
 ```
 
 ```
