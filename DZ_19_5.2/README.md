@@ -60,7 +60,7 @@ Vagrant 2.2.19
 Ansible
 
 ```
-lniger@HP:~/netology.devops/vagrant$ ansible --version
+uralhouse@HP:~/netology.devops/vagrant$ ansible --version
 ansible [core 2.12.1]
   config file = /home/uralhouse/netology.devops/vagrant/ansible.cfg
   configured module search path = ['/home/uralhouse/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
