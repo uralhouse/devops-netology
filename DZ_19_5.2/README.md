@@ -44,54 +44,13 @@
 
 VirtualBox
 
-![image-20220121105820808](image/image-20220121105820808.png)
+![image-20220125100305211](image/image-20220125100305211.png)
 
 Vagrant
 
-![image-20220121105909573](image/image-20220121105909573.png)
+![image-20220125100332443](image/image-20220125100332443.png)
 
 Ansible
 
-![image-20220121110249048](image/image-20220121110249048.png)
+![image-20220125100354430](image/image-20220125100354430.png)
 
-## Задача 4 (*)
-
-Воспроизвести практическую часть лекции самостоятельно.
-
-- Создать виртуальную машину.
-- Зайти внутрь ВМ, убедиться, что Docker установлен с помощью команды
-```
-docker ps
-```
-
-
-
-Задаем провайдер по умолчанию:
-
-```
-alniger@HP:~/netology.devops/05/vagrant$ export VAGRANT_DEFAULT_PROVIDER=virtualbox
-```
-
-Загружаем образ виртуальной машины:
-
-```
-alniger@HP:~/netology.devops/05/vagrant$ vagrant box add bento/ubuntu-20.04 --provider=virtualbox --force
-==> box: Loading metadata for box 'bento/ubuntu-20.04'
-    box: URL: https://vagrantcloud.com/bento/ubuntu-20.04
-==> box: Adding box 'bento/ubuntu-20.04' (v202112.19.0) for provider: virtualbox
-    box: Downloading: https://vagrantcloud.com/bento/boxes/ubuntu-20.04/versions/202112.19.0/providers/virtualbox.box
-    box: Download redirected to host: vagrantcloud-files-production.s3-accelerate.amazonaws.com
-==> box: Successfully added box 'bento/ubuntu-20.04' (v202112.19.0) for 'virtualbox'!
-```
-
-Проверяем доступные нам образы ОС:
-
-```
-alniger@HP:~/netology.devops/05/vagrant$ vagrant box list
-bento/ubuntu-20.04 (virtualbox, 202112.19.0)
-```
-
-Запускаем Vagrant:
-
-```
-```
