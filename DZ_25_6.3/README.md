@@ -227,6 +227,19 @@ mysql> SHOW TABLES;
 | orders              |
 +---------------------+
 1 row in set (0.01 sec)
+
+mysql> SELECT * FROM orders;
++----+-----------------------+-------+
+| id | title                 | price |
++----+-----------------------+-------+
+|  1 | War and Peace         |   100 |
+|  2 | My little pony        |   500 |
+|  3 | Adventure mysql times |   300 |
+|  4 | Server gravity falls  |   300 |
+|  5 | Log gossips           |   123 |
++----+-----------------------+-------+
+5 rows in set (0.00 sec)
+
 ```
 
 **Приведите в ответе** количество записей с `price` > 300.
