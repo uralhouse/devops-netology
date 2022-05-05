@@ -174,7 +174,7 @@
 
 4. В ответе присылаем файл `maven-metadata.xml` для этого артефекта
 
-   ![image-20220505181249773](images/image-20220505181249773.png)Ссылка на файл: [maven-metadata.xml]()
+   ![image-20220505181249773](images/image-20220505181249773.png)Ссылка на файл: [maven-metadata.xml](maven-metadata.xml)
 
 ### Знакомство с Maven
 
@@ -234,7 +234,7 @@
 
    ![image-20220505203258216](images/image-20220505203258216.png)
 
-   Ссылка на файл: [pom.xml]()
+   Ссылка на файл: [pom.xml](pom.xml)
 
 ---
 
