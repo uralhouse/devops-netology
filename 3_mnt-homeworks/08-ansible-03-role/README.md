@@ -105,4 +105,4 @@
 
     Репозиторий с playbook:
 
-    [https://github.com/uralhouse/devops-netology/tree/main/3.Mnt-homeworks/08-ansible-03-role/playbook](https://github.com/uralhouse/devops-netology/tree/main/3.Mnt-homeworks/08-ansible-03-role/playbook)
+    [https://github.com/uralhouse/devops-netology/tree/main/3_mnt-homeworks/08-ansible-03-role/playbook](https://github.com/uralhouse/devops-netology/tree/main/3_mnt-homeworks/08-ansible-03-role/playbook)
