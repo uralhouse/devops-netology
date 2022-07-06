@@ -1,0 +1,7 @@
+---
+all:
+  hosts:
+    centos:
+      ansible_host: 10.0.2.6
+      ansible_connection: ssh
+      ansible_ssh_user: root

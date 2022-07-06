@@ -1,0 +1,35 @@
+---
+- name: Install nginx, clickhouse, lighthouse, vector
+  hosts: all
+  roles:
+    - nginx
+    - clickhouse
+    - lighthouse
+    - vector
+ 
+  handlers:
+    - name: Restart nginx service
+      become: true
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
+
+  tasks:
+    - name: Create nginx config
+      become: true
+      ansible.builtin.template:
+        src: nginx.conf.j2
+        dest: /etc/nginx/conf.d/default.conf
+        mode: "0755"
+        owner: "nginx"
+        group: "nginx"
+      notify: Restart nginx service
+
+    - name: Copy clickhouse to www
+      ansible.builtin.copy:
+        src: "/tmp/lighthouse"
+        dest: "/var/www/"
+        remote_src: true
+        mode: "0755"
+        owner: "nginx"
+        group: "nginx"
