@@ -1,0 +1,15 @@
+repos:
+- id: https://github.com/uralhouse/devops-netology/tree/main/2_virt-homeworks/07-terraform-02-syntax/terraform
+  apply_requirements: [approved]
+  allow_custom_workflows: true
+  workflow: default
+workflows:
+  default:
+    plan:
+      steps:
+      - init
+      - plan:
+          extra_args: ["-lock", "false"]
+    apply:
+      steps:
+      - apply
