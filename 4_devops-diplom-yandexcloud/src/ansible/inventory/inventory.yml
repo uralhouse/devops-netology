@@ -1,0 +1,50 @@
+---
+nginx:
+  hosts:
+    uralhouse.site:
+      ansible_connection: ssh
+      ansible_user: ubuntu
+      ansible_ssh_extra_args: "-o StrictHostKeyChecking=no"
+      letsencrypt_email: uralhouse@mail.ru
+      domain_name: uralhouse.site
+mysql:
+  hosts:
+    db01.uralhouse.site:
+      ansible_connection: ssh
+      ansible_user: ubuntu
+      mysql_server_id: 1
+      mysql_replication_role: master
+      ansible_ssh_extra_args: "-o StrictHostKeyChecking=no -J ubuntu@uralhouse.site"
+    db02.uralhouse.site:
+      ansible_connection: ssh
+      ansible_user: ubuntu
+      mysql_server_id: 2
+      mysql_replication_role: slave
+      ansible_ssh_extra_args: "-o StrictHostKeyChecking=no -J ubuntu@uralhouse.site"
+app:
+  hosts:
+    app.uralhouse.site:
+      ansible_connection: ssh
+      ansible_user: ubuntu
+      ansible_ssh_extra_args: "-o StrictHostKeyChecking=no -J ubuntu@uralhouse.site"
+gitlab:
+  hosts:
+    gitlab.uralhouse.site:
+      ansible_connection: ssh
+      ansible_user: ubuntu
+      ansible_ssh_extra_args: "-o StrictHostKeyChecking=no -J ubuntu@uralhouse.site"
+runner:
+  hosts:
+    runner.uralhouse.site:
+      ansible_connection: ssh
+      ansible_user: ubuntu
+      ansible_ssh_extra_args: "-o StrictHostKeyChecking=no -J ubuntu@uralhouse.site"      
+monitoring:
+  hosts:
+    monitoring.uralhouse.site:
+      ansible_connection: ssh
+      ansible_user: ubuntu
+      ansible_ssh_extra_args: "-o StrictHostKeyChecking=no -J ubuntu@uralhouse.site"
+proxy:
+  hosts:
+    uralhouse.site:    

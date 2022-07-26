@@ -1,0 +1,24 @@
+- hosts: app
+  gather_facts: true
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  remote_user:
+    ubuntu
+  vars:
+    - domain: "uralhouse.site"
+    - download_url: "http://wordpress.org/latest.tar.gz"
+    - wpdirectory: "/var/www"
+  roles:
+   - update
+   - nginx
+   - memcached
+   - php5
+   - wordpress
+  environment:
+     http_proxy: http://uralhouse.site:8118
+     https_proxy: http://uralhouse.site:8118
+
