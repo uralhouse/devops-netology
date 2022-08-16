@@ -4,7 +4,7 @@
 1. Установите ansible версии 2.10 или выше.
 
    ```
-   uralhouse@hp:~/netology/devops-netology/DZ_35_8.1$ ansible --version
+   $ ansible --version
    ansible 2.10.8
      config file = None
      configured module search path = ['/home/uralhouse/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
